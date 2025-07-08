@@ -1,54 +1,969 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f9f9f9;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  background-color: #f0f8ff; /* Light Blue */
+  color: #333;
+  transition: background-color 0.3s, color 0.3s; /* For Dark Mode */
 }
 
+/* Dark Mode Toggle */
+body.dark-mode {
+  background: #222;
+  color: #fff;
+}
+
+/* Header Styles */
 header {
-    background-color: #0073e6;
-    color: white;
+  background-color: rgba(46, 139, 87, 0.9); /* Sea Green with transparency */
+  backdrop-filter: blur(10px); /* Glassmorphism */
+  color: white;
+  padding: 0.5em 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky; /* Sticky Header */
+  top: 0;
+  z-index: 100; /* Ensure it stays on top */
+  transition: background 0.3s ease-in-out;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Increased max-width */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navigation - Left side (Logo and Tuition Name) */
+nav .nav-left {
+  display: flex;
+  align-items: center;
+}
+
+nav .nav-left img.logo {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Add transition */
+}
+
+nav .nav-left img.logo:hover {
+  transform: scale(1.1); /* Add hover effect */
+}
+
+nav .nav-left .tuition-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Navigation Links */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Add transition */
+}
+
+nav a:hover {
+  color: #ffcc00; /* Highlight links */
+  text-decoration: underline;
+}
+
+/* Hero Section Styles */
+.hero {
+  background: linear-gradient(to right, #6a5acd, #9370db); /* Lavender */
+  color: white;
+  padding: 5em 0;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2em;
+  max-width: 1200px; /* Center content */
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease; /* Add transition */
+}
+
+.hero:hover {
+  background: linear-gradient(to left, #6a5acd, #9370db); /* Reverse gradient on hover */
+}
+
+.hero-content {
+  max-width: 800px; /* Limit content width */
+  margin: 0 auto; /* Center content */
+  padding: 0 20px; /* Add some padding */
+  animation: fadeIn 1s ease-in-out; /* Fade-in Animation */
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 1.5em;
+}
+
+/* Banner Section */
+.banner-section {
+  width: 100%; /* Full width */
+  text-align: center; /* Center the image */
+  margin-bottom: 2em;
+}
+
+.banner-section .banner-image {
+  width: 100%; /* Make the image full-width */
+  max-width: 1200px; /* Match the max-width of other sections */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 600px; /* Control max height */
+  display: block; /* Remove any extra space below the image */
+  margin: 0 auto; /* Center the image horizontally */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+  animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* General Section Styles */
+section {
+  max-width: 1200px; /* Increased max-width */
+  margin: 0 auto;
+  padding: 2em 20px;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #4682b4; /* Steel Blue */
+}
+
+/* What We Offer Section Styles */
+#what-we-offer {
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+margin-bottom: 2em; /* Add bottom margin for spacing */
+}
+
+#what-we-offer h2 {
+font-size: 24px;
+margin-bottom: 15px;
+color: #4682b4; /* Steel Blue */
+text-align: center; /* Center the title */
+}
+
+/* Offer Navigation */
+.offer-navigation {
+display: flex;
+justify-content: space-around;
+margin-bottom: 20px;
+flex-wrap: wrap; /* Allow items to wrap on small screens */
+}
+
+.offer-nav-item {
+background-color: #3498db;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+text-align: center;
+transition: background-color 0.3s ease; /* Add transition */
+margin: 5px; /* Add some spacing between the buttons */
+flex-basis: calc(50% - 10px); /* Distribute the nav items to take up available space but wrap on small screens */
+box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.offer-nav-item:hover {
+background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Offer Sections (Courses, Faculty, Achievements, Events) */
+.offer-section {
+padding: 20px;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.hidden {
+display: none;
+}
+
+/* Course Container Styles */
+.course-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+/* Course Item Styles */
+.course-item {
+width: 200px;
+margin: 15px;
+padding: 20px;
+background: white; /* Glassmorphism background */
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+transition: transform 0.3s ease-in-out;
+}
+
+.course-item:hover {
+transform: translateY(-10px) scale(1.05);
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.course-item h3 {
+font-size: 18px;
+margin-bottom: 10px;
+color: #3498db; /* Blue for course titles */
+}
+
+/* Faculty Container Styles */
+.faculty-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+.faculty-item {
+width: 200px;
+margin: 15px;
+padding: 20px;
+background-color: #ecf0f1;
+border-radius: 8px;
+text-align: center;
+transition: transform 0.3s ease; /* Add transition */
+}
+
+.faculty-item:hover {
+transform: translateY(-5px); /* Lift on hover */
+}
+
+.faculty-image {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+margin-bottom: 10px;
+object-fit: cover;
+transition: transform 0.3s ease; /* Add transition */
+}
+
+.faculty-image:hover {
+transform: scale(1.1); /* Zoom on hover */
+}
+
+.faculty-item h3 {
+font-size: 18px;
+margin-bottom: 5px;
+color: #3498db; /* Blue for faculty names */
+}
+
+.faculty-item p {
+font-size: 14px;
+color: #555;
+}
+
+/* Achievement Container Styles */
+.achievement-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+.achievement-item {
+width: 200px;
+margin: 15px;
+padding: 10px;
+background-color: #ecf0f1;
+border-radius: 8px;
+text-align: center;
+transition: transform 0.3s ease; /* Add transition */
+}
+
+.achievement-item:hover {
+transform: translateY(-5px); /* Lift on hover */
+}
+
+.achievement-image {
+width: 100%;
+height: 150px;
+margin-bottom: 10px;
+object-fit: cover;
+border-radius: 4px;
+transition: transform 0.3s ease; /* Add transition */
+}
+
+.achievement-image:hover {
+transform: scale(1.05); /* Zoom on hover */
+}
+
+/* Events Container Styles */
+.events-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+
+.event {
+width: 200px;
+margin: 15px;
+padding: 20px;
+background-color: #ecf0f1;
+border-radius: 8px;
+text-align: center;
+transition: transform 0.3s ease; /* Add transition */
+}
+
+.event:hover {
+transform: translateY(-5px); /* Lift on hover */
+}
+/* Our Events Section Styles */
+#events .events-container .event h3 a {
+    text-decoration: none;  /* Remove underlines from event links */
+    color: white;  /* Steel Blue */
+}
+
+/* Styles for all modal windows */
+.modal {
+    display: none;           /* Hidden by default */
+    position: fixed;        /* Stay in place */
+    z-index: 1;             /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;           /* Full width */
+    height: 100%;          /* Full height */
+    overflow: auto;         /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4);  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;         /* 5% from the top and centered */
     padding: 20px;
-    font-size: 24px;
+    border: 1px solid #888;
+    width: 80%;           /* Could be more or less, depending on screen size */
+    position: relative;
 }
 
-.banner img {
+/* Style the image gallery inside the modal */
+.modal .image-gallery {
+    display: flex;              /* Use flexbox for image layout */
+    flex-wrap: wrap;           /* Allow images to wrap to the next line */
+    justify-content: center;  /* Center images horizontally */
+    margin-bottom: 20px;      /* Add spacing between the gallery and the video */
+}
+
+.modal .image-gallery img {
+    width: 180px;          /* Small width for mobile layout */
+    height: auto;          /* Maintain aspect ratio */
+    margin: 5px;          /* Give some space between the pictures */
+    border-radius: 8px;    /* Round corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Add a gentle shadow */
+    object-fit: cover;     /* Cover area and prevent distortion */
+}
+
+/* Basic video styles inside modal */
+.modal video {
+    width: 100%;           /* Ensure video takes up full width of its container */
+    max-width: 640px;      /* Set maximum video width */
+    height: auto;           /* Maintain video aspect ratio */
+    display: block;         /* Remove any extra space below the video */
+    margin: 0 auto;         /* Center video if smaller than container */
+    border-radius: 8px;    /* Same round corner style */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* Match shadows */
+}
+
+/* Style the close button */
+.close {
+  position: absolute;  /* Position it at top right corner */
+  right: 10px;       /* Distance from right border */
+  top: 0;           /* Distance from top border */
+  color: #aaa;        /* Grayish color */
+  float: right;       /* Float to the right */
+  font-size: 28px;    /* Make it bigger */
+  font-weight: bold;   /* Make it bold */
+}
+
+/* Button Styles */
+.button {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b); /* Gradient Background */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+/* Style the video close button */
+.close:hover,
+.close:focus {
+    color: black;           /* Turn it black on hover/focus */
+    text-decoration: none;   /* Take off any underline */
+    cursor: pointer;        /* Show user that it is a clickable element */
+}
+
+/* Style links for the event */
+.event a {
+    text-decoration: none;
+    color: inherit;
+}
+#about {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* General Sections */
+#about h2 {
+    text-align: center;    /* Center the title */
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #007bff;        /* A vibrant blue */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* A gentle text shadow */
+}
+#mentors-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-in-out;
+}
+/* Use Flexbox for layout */
+.section-container {
+  display: flex;                  /* Activate flexbox */
+  justify-content: space-around; /* Distribute space evenly */
+  padding: 1rem;                  /* Pad the content */
+}
+
+/* Mentor section style */
+.mentors {
+  flex: 1;                        /* Take up 1/2 the available space */
+  padding: 1rem;                  /* Pad the content */
+  display: flex;                  /* Flex the mentors */
+  flex-direction: column;        /* Stack the mentor cards vertically */
+  align-items: center;            /* Vertically center */
+  border-right: 1px solid #ddd;  /* Add a subtle line */
+  margin-right: 1rem;            /* Separate from right section */
+}
+/* style for the mentor card */
+.mentor-card {
+border: 1px solid #ddd;        /* Add a subtle border */
+padding: 1rem;                  /* Padding the card */
+text-align: center;             /* Center text within the card */
+margin: 0.5rem;                  /* Margin around the card */
+border-radius: 8px;             /* Round the corners */
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Add a shadow */
+}
+
+/* Style to make the images smaller */
+.mentor-card img {
+width: 120px;                  /* Keep image size reasonable */
+height: 120px;                 /* Image height */
+border-radius: 50%;             /* Make the corners rounded */
+object-fit: cover;              /* Crop if necessary */
+margin-bottom: 0.5em;           /* Margin below the image */
+}
+
+/* Make name bold */
+.mentor-card h3 {
+font-size: 1.2em;
+color: #333;
+font-weight: bold;
+}
+
+/* Style for clickable phone */
+.mentor-card p a {
+color: #0056b3;              /* Darker blue for better visibility */
+}
+
+/* Class section Style */
+.class-info {
+flex: 1;                        /* Take up 1/2 the available space */
+padding: 1rem;                  /* Pad the content */
+text-align: left;              /* Align text */
+}
+
+/* Style to ensure the time and location is visible */
+.class-info h4 {
+font-size: 1.5em;
+color: #555;
+margin-bottom: 0.5em;
+}
+
+/* Style all text */
+.class-info p {
+flex: 1;                        /* Take up 1/2 the available space */
+padding: 1rem;                  /* Pad the content */
+text-align: left;              /* Align text */
+}
+
+/* Style all time slots */
+.class-info .time-slot {
+font-weight: bold;
+color: #333;
+}
+
+/* List style */
+.class-info ul {
+list-style-type: square;        /* Use square bullet points */
+padding-left: 20px;            /* Move text to the right */
+}
+
+/* Add responsive code here */
+@media (max-width: 768px) {
+
+/* Change width */
+.section-container {
+    flex-direction: column;    /* Stack sections */
+}
+
+/* Adjust size and width on picture */
+.mentors {
+    border-right: none;        /* No more borders */
+    margin-right: 0;          /* No margins */
+    flex: none;
+    width: 100%;              /* Occupy the width */
+}
+/* Mentor cards */
+.mentor-card {
+    flex: none;
     width: 100%;
-    height: auto;
+    max-width: 300px;          /* Limit max width */
+    margin: 1em auto;           /* Center */
 }
 
-.about, .courses, .contact {
-    padding: 40px 20px;
+/* Styles for the class info  */
+.class-info {
+    flex: none;
+    width: 100%;               /* Occupy the width */
+    padding: 1em;
 }
 
-.about h2, .courses h2, .contact h2 {
-    color: #0073e6;
-}
-
-.course-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.course {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
-}
-
-.course img {
+nav ul {
+    display: none !important; /* Hide the navigation links by default on small screens */
+    flex-direction: column; /* Stack the links vertically */
+    position: absolute;
+    top: 100%; /* Position the menu below the header */
+    left: 0;
     width: 100%;
-    height: 150px;
-    border-radius: 10px;
+    background-color: #2e8b57 !important; /* Sea Green, same as header */
+    text-align: center;
+    z-index: 10; /* Ensure the menu is on top of other content */
 }
 
-footer {
+nav li {
+    margin: 0;
+    padding: 1em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Add a subtle divider */
+}
+
+nav a {
+    display: block; /* Make links fill the entire width */
+  }
+
+  /* Show the menu when the nav is active */
+  nav.active ul {
+    display: flex !important;
+    flex-direction: column; /* Ensure vertical layout when active */
+  }
+
+.menu-icon {
+    display: block !important; /* Show the hamburger icon */
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+}
+
+/* Hide the menu icon by default on larger screens */
+.menu-icon {
+  display: none;
+}
+
+/* Here, the code for setting sizes for the banner images.
+#Banner-section .banner-image {
+max-height: 250px;
+border-radius: 5px;
+margin-bottom: 1em;
+}
+
+/* Reset hero padding and margins */
+.hero {
+padding: 2em 0;
+margin-bottom: 1em;
+}
+
+/* Center and limit content width */
+.hero-content {
+max-width: 90%;
+padding: 0 10px;
+}
+/* Modal Styles for smaller screens */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%; /* Make modal take up more of the screen */
+    margin: 10% auto; /* Adjust margin to keep it vertically centered */
+  }
+  
+  /* Adjust image gallery layout */
+  .modal .image-gallery {
+    flex-direction: column; /* Stack images */
+    align-items: center;    /* Center horizontally */
+  }
+  
+  .modal .image-gallery img {
+    width: 90%; /* Occupy most of the available width */
+    max-width: 300px; /* Limit the max width */
+    margin: 10px 0; /* Add vertical margins */
+  }
+  
+  .modal video {
+    max-width: 100%;  /* Video takes up full modal width */
+    width: auto;
+  }
+  }
+  
+  /* In Our Mentors Section */
+  .class-info .office-number {
+  margin-top: 0.5em; /* Add some spacing above the office number */
+  }
+  
+  /* Style for the inline "Know More About Us" section */
+  #know-more-inline {
+  margin-top: 1em; /* Add some spacing above the section */
+  padding: 1em;
+  background-color: #f0f8ff; /* Light Blue - same as body */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Align text to the left */
+  }
+  
+  #know-more-inline h4 {
+  color: #4682b4; /* Steel Blue */
+  margin-bottom: 0.5em;
+  text-align: left; /* Ensure the heading is aligned left */
+  }
+  
+  #know-more-inline p {
+  font-size: 1em;
+  line-height: 1.5;
+  color: #555;
+  }
+  /* Style the event links as buttons */
+  .styled-button {
+  display: inline-block;            /* Make it block-level for width control */
+  padding: 10px 20px;            /* Padding around the text */
+  background-color: #4CAF50;      /* A vibrant green */
+  color: white;                   /* Text color */
+  text-decoration: none;          /* Remove underlines */
+  border-radius: 5px;             /* Rounded corners */
+  transition: background-color 0.3s ease;  /* Smooth transition on hover */
+  font-size: 1em;                 /* Adjust font size as needed */
+  cursor: pointer;                /* Change cursor to a pointer on hover */
+  border: none;                   /* Remove the border */
+  text-align: center;             /* Ensure the text is centered */
+  }
+  
+  /* Hover effect for the button */
+  .styled-button:hover {
+  background-color: #388E3C;      /* A darker shade of green */
+  }
+  /* Our Events Section Styles */
+  #events .events-container .event h3 a {
+  text-decoration: none;  /* Remove underlines from event links */
+  color: white;  /* Steel Blue */
+  }
+  
+  /* Contact Us Section Styles */
+  /* Contact Us Section Styles */
+  #contact {
+  background-color: #f5f5f5; /* Light gray background color */
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Limit width of the contact form */
+  margin: 2em auto; /* Center the contact section */
+  }
+  
+  #contact h2 {
+  text-align: center;
+  color: #4682b4; /* Steel Blue */
+  margin-bottom: 1em;
+  }
+  
+  #contact-form label {
+  display: block; /* Display labels on top of inputs */
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #555;
+  }
+  
+  #contact-form input[type="text"],
+  #contact-form input[type="email"],
+  #contact-form textarea {
+  width: 100%; /* Make inputs full width */
+  padding: 0.75em;
+  margin-bottom: 1.5em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  font-family: 'Arial', sans-serif; /* Inherit font */
+  }
+  
+  #contact-form textarea {
+  height: 150px; /* Increase height of the textarea */
+  }
+  
+  /* Style the submit button */
+  .submit-button {
+  background-color: #2e8b57; /* Sea Green */
+  color: white;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  }
+  
+  .submit-button:hover {
+  background-color: #226f47; /* Darker Sea Green on hover */
+  }
+  .course-item:hover {
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Gentle shadow */
+  transition: all 0.3s ease;
+  }
+  .mentor-card img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  transition: transform 0.3s ease;
+  }
+  #contact-form input[type="text"]:focus,
+  #contact-form input[type="email"]:focus,
+  #contact-form textarea:focus {
+    border-color: #87CEEB; /* Light Sky Blue */
+    box-shadow: 0 0 5px rgba(135, 206, 235, 0.5); /* Subtle glow */
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Testimonials Section Styles */
+  #testimonials {
+    background-color: #fff; /* White background */
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center the text */
+    margin-bottom: 2em; /* Add bottom margin for spacing */
+  }
+  
+  #testimonials h2 {
+    color: #20b2aa; /* Light Sea Green */
+    margin-bottom: 0.5em;
+  }
+  
+  .testimonials-container {
+    display: flex; /* To arrange testimonials in a row */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    scroll-snap-type: x mandatory; /* Enable horizontal scrolling if needed */
+    padding-bottom: 1em; /* Add some space for the scrollbar */
+    scroll-behavior: smooth;
+  }
+  
+  .testimonial {
+    flex: 0 0 80%; /* Do not grow, do not shrink, base size is auto */
+    width: 80%; /* Adjust as needed */
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 1em; /* Add space between testimonials */
+    text-align: left; /* Align text to the left */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .testimonial p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0.5em;
+  }
+  
+  .testimonial-author {
+    display: flex; /* To align image and text */
+    align-items: center; /* Vertically align items */
+  }
+  
+  .testimonial-author img {
+    width: 50px; /* Image size */
+    height: 50px;
+    max-width: 50px;         /* ensure it doesn't exeed bounds */
+    max-height: 50px;         /* ensure it doesn't exeed bounds */
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover; /* Ensure proper cropping */
+    margin-right: 0.5em; /* Spacing between image and text */
+  }
+  
+  .testimonial-author span {
+    font-weight: bold; /* Author name */
+    color: #333;
+  }
+  
+  /*FAQ Section*/
+  #faq {
+    background-color: #fff; /* White background */
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em; /* Add bottom margin for spacing */
+  }
+  
+  #faq h2 {
+    color: #20b2aa; /* Light Sea Green */
+    margin-bottom: 1em;
+    text-align: center;
+  }
+  
+  details {
+    margin-bottom: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1em;
+    transition: all 0.3s ease; /* Add a smooth transition */
+  }
+  
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em 0;
+  }
+  
+  summary:focus {
+    outline: none; /* Remove the default outline on focus */
+  }
+  
+  details[open] {
+    background-color: #f0f8ff; /* Light Blue */
+  }
+  
+  details[open] summary {
+    font-weight: bold;
+    color: #4682b4; /* Steel Blue */
+  }
+  /* In Our Mentors Section */
+  .mentor-card img {
+      width: 120px;                  /* Keep image size reasonable */
+      height: 120px;                 /* Image height */
+      border-radius: 50%;             /* Make the corners rounded */
+      object-fit: cover;              /* Crop if necessary */
+      margin-bottom: 0.5em;          /* Margin below the image */
+  }
+  
+  /* Testimonials Section Styles */
+  #testimonials .testimonial-author img {
+      width: 50px;                  /* Image size */
+      height: 50px;
+      max-width: 50px;         /* ensure it doesn't exeed bounds */
+      max-height: 50px;         /* ensure it doesn't exeed bounds */
+      border-radius: 50%; /* Make it a circle */
+      object-fit: cover; /* Ensure proper cropping */
+      margin-right: 0.5em; /* Spacing between image and text */
+  }
+  /* Dark Mode Toggle Button Styles (Icon-based) */
+  #darkModeToggle {
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #666; /* Adjust as needed */
+      transition: color 0.3s ease;
+  }
+  
+  #darkModeToggle:hover {
+      color: #333;
+  }
+  
+  body.dark-mode #darkModeToggle {
+      color: #ccc; /* Adjust for dark mode */
+  }
+  
+  body.dark-mode #darkModeToggle:hover {
+      color: #fff;
+  }
+
+  footer {
     background-color: #333;
     color: white;
-    padding: 10px;
-    font-size: 14px;
-}
+    padding: 1em 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer p {
+    font-size: 0.8em;
+    color: #999;
+  }
+  
+  footer .footer-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1em;
+    font-size: 0.8em;
+  }
+  
+  footer .back-to-top {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8em;
+  }
+  
+  footer .social-icons {
+    margin-top: 0.5em;
+  }
+  
+  footer .social-icons a {
+    display: inline-block;
+    margin: 0 0.5em;
+  }
+  
+  footer .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
